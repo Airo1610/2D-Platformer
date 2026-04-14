@@ -12,17 +12,33 @@ public class PlayerMotor : MonoBehaviour
     public float jumpForce = 5;
     public float enemyHitForce = 50;
     private Rigidbody2D _rigidbody2D;
-    private HealthComponent _healthComponent;
     private bool _canJump = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _healthComponent = GetComponent<HealthComponent>();
-        _healthComponent.OnHealthChanged += OnHealthChanged;
     }
     // Update is called once per frame
     private void FixedUpdate()
+    {
+        MovePlayer();
+        LimitMaxSpeed();
+    }
+
+    private void LimitMaxSpeed()
+    {
+        //Limit max speed
+        if (_rigidbody2D.linearVelocityX >= maxSpeedX)
+        {
+            _rigidbody2D.linearVelocityX = maxSpeedX;
+        }
+        else if (_rigidbody2D.linearVelocityX <= -maxSpeedX)
+        {
+            _rigidbody2D.linearVelocityX = -maxSpeedX;
+        }
+    }
+
+    private void MovePlayer()
     {
         //accelerate if pressing button
         if (direction.x != 0)
@@ -42,15 +58,6 @@ public class PlayerMotor : MonoBehaviour
             {
                 _rigidbody2D.AddForce(new Vector2(-_rigidbody2D.linearVelocityX * stoppingForce, 0));
             }
-        }
-        //Limit max speed
-        if (_rigidbody2D.linearVelocityX >= maxSpeedX)
-        {
-            _rigidbody2D.linearVelocityX = maxSpeedX;
-        }
-        else if (_rigidbody2D.linearVelocityX <= -maxSpeedX)
-        {
-            _rigidbody2D.linearVelocityX = -maxSpeedX;
         }
     }
 
