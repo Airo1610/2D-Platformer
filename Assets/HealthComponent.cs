@@ -7,24 +7,28 @@ public class HealthComponent : MonoBehaviour
     public int maxHealth = 100;
     public float invincibilityTime = 2f;
     private bool canReciveDamage = true;
-
-    private int currentHealth;
-    
-    public delegate void HealthChangedHandler(int oldHealth, int amountChanged);
-    public event HealthChangedHandler OnHealthChanged;
+    private float currentHealth;
 
     private void Start()
     {
         currentHealth = maxHealth;
     }
     
-    public void ReceiveDamage(int amount, Vector3 origin)
+    public void ReceiveDamage(float amount)
     {
         if (canReciveDamage)
         {
             canReciveDamage = false;
+            currentHealth -= amount;
             StartCoroutine(RunInvincibilityTimer(invincibilityTime, RefreshInvincibility));
+            Debug.Log(currentHealth);
         }
+    }
+
+    public void AddHealth(float amount)
+    {
+        currentHealth += amount;
+        Debug.Log(currentHealth);
     }
 
     IEnumerator RunInvincibilityTimer(float waitTime, Action callback)

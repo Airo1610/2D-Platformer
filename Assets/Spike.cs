@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    public int damage = 1;
+    public float damage = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +18,6 @@ public class Spike : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.GetComponent<HealthComponent>().ReceiveDamage(damage, this.transform.position);
+        other.GetComponent<HealthComponent>().ReceiveDamage(damage);
     }
 }
