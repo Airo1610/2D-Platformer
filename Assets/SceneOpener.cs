@@ -7,5 +7,6 @@ public class SceneOpener : MonoBehaviour
     public void OpenScene()
     {
         SceneManager.LoadScene(sceneToOpen);
+        Debug.Log("a");
     }
 }
