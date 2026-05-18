@@ -12,11 +12,16 @@ public class PlayerMotor : MonoBehaviour
     public float jumpForce = 5;
     public float enemyHitForce = 50;
     private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
     private bool _canJump = true;
+
+    private float initialScale;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        initialScale = transform.localScale.x;
     }
     // Update is called once per frame
     private void FixedUpdate()
@@ -44,6 +49,17 @@ public class PlayerMotor : MonoBehaviour
         if (direction.x != 0)
         {
             _rigidbody2D.AddForce(new Vector2(direction.x * acceleration, 0));
+            _animator.SetBool("IsMoving", true);
+            if (direction.x > 0)
+            {
+                //movin right
+                gameObject.transform.localScale = new Vector3(initialScale, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            }
+            else
+            {
+                //movin left
+                gameObject.transform.localScale = new Vector3(-initialScale, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            }
         }
         //if not accelerating start slowing down
         else if (_rigidbody2D.linearVelocityX != 0)
@@ -58,6 +74,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 _rigidbody2D.AddForce(new Vector2(-_rigidbody2D.linearVelocityX * stoppingForce, 0));
             }
+            _animator.SetBool("IsMoving", false);
         }
     }
 
