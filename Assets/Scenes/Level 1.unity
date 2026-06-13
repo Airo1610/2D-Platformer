@@ -3776,7 +3776,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1042498518598020668, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3275623106698334505, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
       propertyPath: m_LocalScale.x
