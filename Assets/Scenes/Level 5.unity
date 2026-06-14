@@ -1406,7 +1406,7 @@ PrefabInstance:
     - target: {fileID: 189701774628848455, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: coinComp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1111108237}
     - target: {fileID: 1605631322574955999, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1442,7 +1442,7 @@ PrefabInstance:
     - target: {fileID: 2936331740035961467, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: healthComponent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1111108239}
     - target: {fileID: 5819395004410712954, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
@@ -2014,6 +2014,8 @@ MonoBehaviour:
   stoppingPoint: 0.1
   jumpForce: 5
   enemyHitForce: 50
+  jumpPower: 0
+  maxNumberOfJumps: 2
 --- !u!114 &1111108243
 MonoBehaviour:
   m_ObjectHideFlags: 0

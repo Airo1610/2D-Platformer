@@ -9,10 +9,15 @@ public class PlayerMotor : MonoBehaviour
     public float stoppingForce = 10;
     public float maxSpeedX = 10;
     public float stoppingPoint = 0.1f;
-    public float jumpForce = 5;
+    public float jumpForce = 6;
     public float enemyHitForce = 50;
     private Rigidbody2D _rigidbody2D;
     private bool _canJump = true;
+
+    [SerializeField] private float jumpPower;
+    private int _numberOfJumps;
+    [SerializeField] private int maxNumberOfJumps = 2;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
