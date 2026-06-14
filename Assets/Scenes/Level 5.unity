@@ -222,9 +222,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 77845018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04d6ad5be59be341a0f810544a9a6fd, type: 3}
+  m_Script: {fileID: 11500000, guid: b15bf1cf6cd7c014f821d4e869267ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToOpen: Congratulations
 --- !u!1 &296351951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf628dcf27c2334884e2e7a568309e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 5
 --- !u!61 &1111108240
 BoxCollider2D:
   m_ObjectHideFlags: 0
