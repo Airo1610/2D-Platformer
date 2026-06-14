@@ -2378,7 +2378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2961115684888990066, guid: 427006cf48e407243b15fb03f99661a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6312997
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 2961115684888990066, guid: 427006cf48e407243b15fb03f99661a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2494,6 +2494,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1042498518598020668, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1747939851}
     - target: {fileID: 3275623106698334505, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.98
@@ -2548,7 +2552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8962628629441109459, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

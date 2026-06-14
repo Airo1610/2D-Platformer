@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 10;
     private float currentHealth;
     private bool invincibility;
 
