@@ -1,92 +1,140 @@
+using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 
-public class PlayerMotor : MonoBehaviour
+public class playermotor : MonoBehaviour
 {
     Vector2 direction;
-    public float acceleration = 10;
-    public float stoppingForce = 10;
-    public float maxSpeedX = 10;
-    public float stoppingPoint = 0.1f;
-    public float jumpForce = 6;
-    public float enemyHitForce = 50;
-    private Rigidbody2D _rigidbody2D;
-    private bool _canJump = true;
-
-    [SerializeField] private float jumpPower;
-    private int _numberOfJumps;
-    [SerializeField] private int maxNumberOfJumps = 2;
+    Rigidbody2D rigidbody2d;
+    public float speed = 10;
+    public float jumpforce = 5;
+    public float dashforce = 15;
+    public float maxspeed = 5;
+    public float stoppingforce = 7;
+    private bool canJump = true;
+    private bool canDoubleJump = true;
+    private bool canDash = true;
+    private Animator animator;
+    private float initScale;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        initScale = transform.localScale.x;
     }
+    
+
     // Update is called once per frame
     private void FixedUpdate()
     {
-        MovePlayer();
-        LimitMaxSpeed();
-    }
-
-    private void LimitMaxSpeed()
-    {
-        //Limit max speed
-        if (_rigidbody2D.linearVelocityX >= maxSpeedX)
+        animator.SetFloat("SpeedY", rigidbody2d.linearVelocityY);
+        //(check if moving right)
+       if(direction.x > 0)
         {
-            _rigidbody2D.linearVelocityX = maxSpeedX;
+            transform.localScale = new Vector3(initScale,transform.localScale.y, transform.localScale.z);
         }
-        else if (_rigidbody2D.linearVelocityX <= -maxSpeedX)
+       else if (direction.x < 0)
         {
-            _rigidbody2D.linearVelocityX = -maxSpeedX;
+            transform.localScale = new Vector3(-initScale, transform.localScale.y, transform.localScale.z);
         }
+        HandlePlayerMovement();
+        MaxSpeedLimiting();
     }
-
-    private void MovePlayer()
+    private void HandlePlayerMovement()
     {
-        //accelerate if pressing button
         if (direction.x != 0)
         {
-            _rigidbody2D.AddForce(new Vector2(direction.x * acceleration, 0));
+            rigidbody2d.AddForce(new Vector2(direction.x * speed, 0));
+            animator.SetBool("IsMoving", true);
         }
-        //if not accelerating start slowing down
-        else if (_rigidbody2D.linearVelocityX != 0)
+        else if (rigidbody2d.linearVelocityX != 0)
         {
-            //if almost stopped, force stop
-            if (_rigidbody2D.linearVelocityX < stoppingPoint && _rigidbody2D.linearVelocityX > -stoppingPoint)
-            {
-                _rigidbody2D.linearVelocity = new Vector2(0.0f, _rigidbody2D.linearVelocityY);
-            }
-            //add stopping force
-            else
-            {
-                _rigidbody2D.AddForce(new Vector2(-_rigidbody2D.linearVelocityX * stoppingForce, 0));
-            }
+            //zatrzymywanie
+            rigidbody2d.AddForce(new Vector2(-rigidbody2d.linearVelocityX * stoppingforce, 0));
+            animator.SetBool("IsMoving", false);
         }
     }
+    private void MaxSpeedLimiting()
 
-    private void OnMove(InputValue value)
     {
+        if (!canDash)
+        {
+            return;
+        }
+        if (rigidbody2d.linearVelocityX >= maxspeed)
+        {
+            rigidbody2d.linearVelocityX = maxspeed;
+        }
+
+        else if (rigidbody2d.linearVelocityX <= -maxspeed)
+        {
+            rigidbody2d.linearVelocityX = -maxspeed;
+        }
+        //transform.position += new Vector3(direction.x, direction.y, 0) * Time.deltaTime * speed;
+    }
+    void OnMove(InputValue value)
+    {
+        // Debug.Log("Move");
+        //Debug.Log(value.Get<Vector2>());
         direction = value.Get<Vector2>();
     }
 
     private void OnJump()
     {
-        if (_canJump)
+        if (canJump)
         {
-            _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            _canJump = false;
+            rigidbody2d.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
+            animator.SetBool("IsJumping", true);
+            canJump = false;
+        }
+        else if (canDoubleJump)
+        {
+            rigidbody2d.AddForce(Vector2.up * jumpforce * 0.5f, ForceMode2D.Impulse);
+            animator.SetBool("IsDoubleJumping", true);
+            canDoubleJump = false;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnDash()
     {
-        _canJump = true;
+        if (canDash)
+        {
+            if (direction.x != 0)
+            {
+
+
+                rigidbody2d.AddForce(new Vector2(direction.x * dashforce, 0), ForceMode2D.Impulse);
+                animator.SetBool("IsDashing", true);
+
+            }
+            else
+            {
+                rigidbody2d.AddForce(new Vector2(dashforce, 0), ForceMode2D.Impulse);
+                animator.SetBool("IsDashing", true);
+            }
+            canDash = false;
+            
+            StartCoroutine(ResetDash(1));
+        }
+    }
+    IEnumerator ResetDash(float cooldown)
+    {
+
+        yield return new WaitForSeconds(cooldown);      
+        canDash = true;
+        animator.SetBool("IsDashing", false);
     }
 
-    private void OnHealthChanged(int oldHealth, int amountChanged, Vector3 origin)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        _rigidbody2D.AddForce(new Vector3(origin.x - transform.position.x,0,0) * enemyHitForce, ForceMode2D.Impulse);
+        canJump = true;
+        canDoubleJump = true;
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsDoubleJumping", false);
     }
+   
 }
