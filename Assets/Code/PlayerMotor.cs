@@ -7,6 +7,8 @@ using UnityEngine.PlayerLoop;
 
 public class playermotor : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+
     Vector2 direction;
     Rigidbody2D rigidbody2d;
     public float speed = 10;

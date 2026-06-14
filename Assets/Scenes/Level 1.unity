@@ -258,6 +258,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5821626504913470011, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
   m_PrefabInstance: {fileID: 350760353}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &113921319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3633324326438207842, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
+  m_PrefabInstance: {fileID: 350760353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113921316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497fa5190cc91944289e66e64ee25d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &113921320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8962628629441109459, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
+  m_PrefabInstance: {fileID: 350760353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113921316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf628dcf27c2334884e2e7a568309e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &113921326
 Animator:
   serializedVersion: 7
@@ -549,7 +571,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5821626504913470011, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 113921326}
   m_SourcePrefab: {fileID: 100100000, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
 --- !u!1001 &369148705
@@ -3645,7 +3667,7 @@ PrefabInstance:
     - target: {fileID: 189701774628848455, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: coinComp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 113921319}
     - target: {fileID: 1605631322574955999, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -3681,7 +3703,7 @@ PrefabInstance:
     - target: {fileID: 2936331740035961467, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: healthComponent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 113921320}
     - target: {fileID: 5819395004410712954, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_Name
       value: Canvas
