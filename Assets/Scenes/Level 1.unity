@@ -563,11 +563,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163919116240870822, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
       propertyPath: sceneToOpen
-      value: 
+      value: EndGameScene
       objectReference: {fileID: 0}
     - target: {fileID: 8962628629441109459, guid: 9659a4e9601c8ed46a1424362b294907, type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

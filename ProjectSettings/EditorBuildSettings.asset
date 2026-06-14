@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/EndGameScene.unity
-    guid: c1949a0f7e3e4c247abfd14a7843c642
-  - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 9a82f0d0d996a324095f7c04fb1d6d84
   - enabled: 1
@@ -26,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
     guid: 479c3574d9309b34c886fa23155d2844
+  - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: c1949a0f7e3e4c247abfd14a7843c642
   - enabled: 1
     path: Assets/Scenes/Congratulations.unity
     guid: f097221bd422d524fb8a6ef574d99c99
