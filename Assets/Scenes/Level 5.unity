@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -10.37
       objectReference: {fileID: 0}
+    - target: {fileID: 1760669472050757625, guid: 0201d8a616df811499967396ad443a6e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760669472050757625, guid: 0201d8a616df811499967396ad443a6e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760669472050757625, guid: 0201d8a616df811499967396ad443a6e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5441966
+      objectReference: {fileID: 0}
     - target: {fileID: 2041867575600814686, guid: 0201d8a616df811499967396ad443a6e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6111
@@ -187,11 +199,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelFinisher
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 631553629022093313, guid: 0201d8a616df811499967396ad443a6e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8423732569550694488, guid: 0201d8a616df811499967396ad443a6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 77845019}
   m_SourcePrefab: {fileID: 100100000, guid: 0201d8a616df811499967396ad443a6e, type: 3}
+--- !u!1 &77845018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8423732569550694488, guid: 0201d8a616df811499967396ad443a6e, type: 3}
+  m_PrefabInstance: {fileID: 77845017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &77845019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77845018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04d6ad5be59be341a0f810544a9a6fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &296351951
 GameObject:
   m_ObjectHideFlags: 0
