@@ -278,7 +278,7 @@ MonoBehaviour:
   stoppingForce: 10
   maxSpeedX: 10
   stoppingPoint: 0.1
-  jumpForce: 6
+  jumpForce: 8
   enemyHitForce: 50
 --- !u!50 &7591299467824077421
 Rigidbody2D:

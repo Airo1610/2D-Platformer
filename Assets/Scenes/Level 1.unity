@@ -3586,19 +3586,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035949593353101392, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2035949593353101392, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2035949593353101392, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -81
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 2035949593353101392, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -110
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2936331740035961467, guid: bdf57d9dce583a44484258d258e0335b, type: 3}
       propertyPath: healthComponent
